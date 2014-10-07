@@ -1,0 +1,25 @@
+.content {
+	margin-top: 50px;
+}
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+.ng-invalid.ng-dirty{
+    border-color:#FA787E;
+}
+.ng-valid.ng-dirty{
+    border-color:#78FA89;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background: url('/modules/core/img/1533777.jpg') no-repeat fixed;
+}
+
+footer {
+	text-align: center;
+}

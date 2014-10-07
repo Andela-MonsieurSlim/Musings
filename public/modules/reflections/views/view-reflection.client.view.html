@@ -1,0 +1,56 @@
+<section data-ng-controller="ReflectionsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="reflection.title"></h1>
+	</div>
+	<div class="pull-right" data-ng-show="authentication.user._id == reflection.user._id">
+		<a class="btn btn-primary" href="/#!/reflections/{{reflection._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="reflection.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="reflection.user.displayName"></span>.
+			<span data-ng-bind="reflection.likes.length"></span> Likes
+		</em>
+	</small>
+	<p class="lead" data-ng-bind="reflection.content"></p>
+	<div class="form-group">
+		<input type="submit" class="btn btn-default" value="Like" ng-click="likeReflection(reflection, 1)">
+		<input type="submit" class="btn btn-default" value="Unlike" ng-click="likeReflection(reflection, -1)" ng-show="">
+	</div>
+	<div ng-repeat="comment in reflection.comments | orderBy:'-created'" class="list-group">
+		<p data-ng-bind="comment.commentBody"></p>
+		<small>
+			<em class="text-muted">
+				Posted on
+				<span data-ng-bind="comment.created | date:'mediumDate'"></span>
+				by
+				<span data-ng-bind="comment.author"></span>.
+			</em>
+	    </small>
+	</div>
+	<div class="col-md-12">
+		<form name="reflectionForm" class="form-horizontal" data-ng-submit="addComment()" novalidate>
+			<fieldset>
+				<div class="form-group">
+					<label class="control-label" for="content">Say Something</label>
+					<div class="controls">
+						<textarea name="content" data-ng-model="comment" id="content" class="form-control" cols="30" rows="10" placeholder="Comment"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-default" value="Say it!">
+				</div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>
