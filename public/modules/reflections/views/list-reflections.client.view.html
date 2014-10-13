@@ -1,21 +1,27 @@
-<section data-ng-controller="ReflectionsController" data-ng-init="find()">
-	<div class="page-header">
-		<h1>Reflections</h1>
+<section data-ng-controller="ReflectionsController" data-ng-init="find()" class="creative">
+	<div class="listViewContainer">
+		<a href="/#!/reflections/create" class="createNew"><img src="/modules/reflections/img/createNew.png"></a>
+		<div class="page-header">
+			<h1>Reflections</h1>
+		</div>
+		<div class="list-group">
+			<a data-ng-repeat="reflection in reflections | orderBy:'-likes'" data-ng-href="#!/reflections/{{reflection._id}}" class="list-group-item">
+				<small class="list-group-item-text">
+					Posted on
+					<span data-ng-bind="reflection.created | date:'mediumDate'"></span>
+					by
+					<span data-ng-bind="reflection.user.displayName"></span>
+					<span data-ng-bind="reflection.comments.length"></span> Things Said
+				</small>
+				<h4 class="list-group-item-heading" data-ng-bind="reflection.title"></h4>
+				<p class="list-group-item-text" data-ng-bind="reflection.content"></p>
+			</a>
+		</div>
+		<div class="alert alert-warning text-center" data-ng-if="reflections.$resolved && !reflections.length">
+			No reflections yet, why don't you <a href="/#!/reflections/create">create one</a>?
+		</div>
 	</div>
-	<div class="list-group">
-		<a data-ng-repeat="reflection in reflections | orderBy:'-likes'" data-ng-href="#!/reflections/{{reflection._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="reflection.created | date:'mediumDate'"></span>
-				by
-				<span data-ng-bind="reflection.user.displayName"></span>
-				<span data-ng-bind="reflection.comments.length"></span> Things Said
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="reflection.title"></h4>
-			<p class="list-group-item-text" data-ng-bind="reflection.content"></p>
-		</a>
-	</div>
-	<div class="alert alert-warning text-center" data-ng-if="reflections.$resolved && !reflections.length">
-		No reflections yet, why don't you <a href="/#!/reflections/create">create one</a>?
-	</div>
+	<footer>
+		<a href="http://monsieurslim.github.io/Portfolio"><p>&copy; 2014 Monsieur Slim | Andela</p></a>
+	</footer>
 </section>

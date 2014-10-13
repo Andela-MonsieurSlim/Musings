@@ -11,4 +11,16 @@ angular.module('reflections').factory('Reflections', ['$resource',
 			}
 		});
 	}
-]);
+]).factory('ReflectionUtilities', function() {
+	var Utils = {};
+
+	Utils.setReflection = function(ref) {
+		Utils.reflection = ref;
+	};
+
+	Utils.getReflection = function() {
+		return Utils.reflection;
+	}
+
+	return Utils;
+});

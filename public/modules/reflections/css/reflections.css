@@ -1,3 +1,42 @@
+/********** FOR LIST, VIEW, CREATE, AND EDIT CLIENT PAGES******************/
 .creative {
-	
+	background: rgb(255,0,255);
+	padding: 30px;
+	width: 100vw;
+	height: 100vh;
+	background: url('/modules/reflections/img/creative.jpg') no-repeat fixed;	
+}
+
+.listViewContainer {
+	background: rgba(128,0,128,0.3);
+	padding: 20px;
+	border-radius: 5px;
+}
+
+/**********SIDE WRITING IMAGE ON CREATE AND EDIT PAGES******************/
+.side-reflect {
+	font-style: italic;
+	background: rgba(128,0,128,0.6);
+	background: url('/modules/reflections/img/side-reflect.jpg');
+	color: black;
+	height: 40%;
+	width: 20%;
+	padding: 10px;
+	padding-top: 20px;
+	border-radius: 5px;
+	position: absolute;
+	right: 0;
+}
+
+/**********FOUNTAIN PEN ICON******************/
+.createNew {
+	margin-bottom: 20px;
+	float: right;
+}
+/**********FOOTER******************/
+footer {
+	position: absolute;
+	bottom: 0;
+	left: 45%;
+	text-align: center;
 }

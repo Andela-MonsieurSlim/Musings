@@ -1,4 +1,4 @@
-<section class="row" data-ng-controller="SettingsController">
+<section data-ng-controller="SettingsController" class="wrapper">
 	<h3 class="col-md-12 text-center" data-ng-show="hasConnectedAdditionalSocialAccounts()">Connected social accounts:</h3>
 	<div class="col-md-12 text-center">
 		<div data-ng-repeat="(providerName, providerData) in user.additionalProvidersData" class="remove-account-container">
@@ -16,14 +16,11 @@
 		<a href="/auth/twitter" data-ng-hide="isConnectedSocialAccount('twitter')" class="undecorated-link">
 			<img src="/modules/users/img/buttons/twitter.png">
 		</a>
-		<a href="/auth/google" data-ng-hide="isConnectedSocialAccount('google')" class="undecorated-link">
-			<img src="/modules/users/img/buttons/google.png">
+		<!-- <a href="/auth/google" data-ng-hide="isConnectedSocialAccount('google')" class="undecorated-link">
+			<img src="/modules/users/img/buttons/googleplus.png">
 		</a>
 		<a href="/auth/linkedin" data-ng-hide="isConnectedSocialAccount('linkedin')" class="undecorated-link">
 			<img src="/modules/users/img/buttons/linkedin.png">
-		</a>
-		<a href="/auth/github" data-ng-hide="isConnectedSocialAccount('github')" class="undecorated-link">
-			<img src="/modules/users/img/buttons/github.png">
-		</a>
+		</a> -->
 	</div>
 </section>

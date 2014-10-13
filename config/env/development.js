@@ -6,13 +6,13 @@ module.exports = {
 		title: 'Musings - Development Environment'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '477221335631523',
+		clientSecret: process.env.FACEBOOK_SECRET || 'c6dc5e360bd834284e07a368d094e290',
 		callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	twitter: {
-		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-		clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+		clientID: process.env.TWITTER_KEY || 'L4VtUgbjWJrgMuspcB5TMKSAR',
+		clientSecret: process.env.TWITTER_SECRET || '4rFdfsYXr4vFrvkzmNsK6x7R201PYz8wWifdOX9IEJdOfm0yyb',
 		callbackURL: 'http://localhost:3000/auth/twitter/callback'
 	},
 	google: {

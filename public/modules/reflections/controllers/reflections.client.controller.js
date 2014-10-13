@@ -1,9 +1,15 @@
 'use strict';
 
-angular.module('reflections').controller('ReflectionsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Reflections', 'Comments', 'Likes',
-	function($scope, $stateParams, $location, Authentication, Reflections, Comments, Likes) {
+angular.module('reflections').controller('ReflectionsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Reflections', 'Comments', 'Likes', 'ReflectionUtilities',
+	function($scope, $stateParams, $location, Authentication, Reflections, Comments, Likes, ReflectionUtilities) {
 		$scope.authentication = Authentication;
+		$scope.content = ReflectionUtilities.getReflection();
+		ReflectionUtilities.setReflection("");
+		$scope.makeComment = false;
 
+		$scope.toggleMakeComment = function() {
+			$scope.makeComment = !$scope.makeComment;
+		};
 		// Create new Reflection
 		$scope.create = function() {
 			var reflection = new Reflections({
@@ -34,7 +40,7 @@ angular.module('reflections').controller('ReflectionsController', ['$scope', '$s
 	          $scope.error = errorResponse.data.message;
 	      });
 	      // Clear form field
-	      this.commentBody = '';
+	      this.comment = '';
 	    };
 
 		$scope.remove = function(reflection) {
