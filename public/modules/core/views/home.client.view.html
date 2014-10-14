@@ -1,24 +1,31 @@
 <section data-ng-controller="HomeController" class="wrap">
-<!-- <div class="login">
-	<a href="/#!/signin"><img src="/modules/core/img/login.png"></a>
-</div> -->
-<div class="page-header">
-	<h1>Welcome to Musings!</h1><h2 data-ng-bind="welcomeMessage"></h2>
-</div>
-<div>
-	<div data-ng-repeat="post in posts track by $index" class="list-group-item">
-		<p class="list-group-item-text" data-ng-bind="post"></p><br>
-		<a href="/#!/reflections/create" class="btn btn-default" ng-click="fillContent(post)"><i class="glyphicon glyphicon-edit"></i>
-			Make a Reflection from this
-		</a>
+	<div class="container listViewContainer">
+		<!-- <div class="login">
+			<a href="/#!/signin"><img src="/modules/core/img/login.png"></a>
+		</div> -->
+		<div class="page-header">
+			<h1>Welcome to Musings!</h1><h2 data-ng-bind="welcomeMessage"></h2>
+		</div>
+		<div class="list-group">
+			<h3>Your Hottest Facebook Posts</h3>
+			<div class="preloader">
+				<img src="/modules/core/img/727.GIF" ng-show="loading">
+			</div>
+			<div data-ng-repeat="post in posts track by $index" class="list-group-item">
+				<p class="list-group-item-text" data-ng-bind="post"></p><br>
+				<a href="/#!/reflections/create" class="btn btn-default" ng-click="fillContent(post)"><i class="glyphicon glyphicon-edit"></i>
+					Make a Reflection from this
+				</a>
+			</div>
+		</div><br>
+		<button class="btn btn-default" type="submit" ng-click="postsRefresh()"><i class="glyphicon glyphicon-refresh"></i>
+			Explore Your Hot Facebook Posts
+		</button>
+		<button class="btn btn-default" type="submit" ng-click="postsRefresh()"><i class="glyphicon glyphicon-refresh"></i>
+			Explore Your Hot Tweets
+		</button>
+		<footer>
+			<a href="http://monsieurslim.github.io/Portfolio"><p>&copy; 2014 Monsieur Slim | Andela</p></a>
+		</footer>
 	</div>
-</div>
-
-<input type="submit" class="btn btn-default" value="Explore Your Hot Tweets" ng-click="">
-
-<input type="submit" class="btn btn-default" value="Explore Your Hot Facebook Posts" ng-click="">
-
-<footer>
-	<a href="http://monsieurslim.github.io/Portfolio"><p>&copy; 2014 Monsieur Slim | Andela</p></a>
-</footer>
 </section>

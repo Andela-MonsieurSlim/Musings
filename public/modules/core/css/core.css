@@ -14,21 +14,30 @@
     border-color:#78FA89;
 }
 /**********MAIN CONTAINER******************/
+h1, h3 {
+	color: white;
+}
+h2 {
+	color: pink;
+}
+
 .wrap {
 	background: rgb(255,0,255);
 	padding: 30px;
 	width: 100%;
 	height: 100vh;
 	background: url('/modules/core/img/1533777.jpg') no-repeat fixed;
+	overflow: auto;
 }
 
 .login {
 	float: right;
 }
-
+.preloader {
+	text-align: center;
+}
 footer {
-	position: absolute;
+	position: relative;
 	bottom: 0;
-	left: 45%;
 	text-align: center;
 }

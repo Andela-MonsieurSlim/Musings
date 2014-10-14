@@ -1,5 +1,5 @@
 <section data-ng-controller="ReflectionsController" data-ng-init="find()" class="creative">
-	<div class="listViewContainer">
+	<div class="container listViewContainer">
 		<a href="/#!/reflections/create" class="createNew"><img src="/modules/reflections/img/createNew.png"></a>
 		<div class="page-header">
 			<h1>Reflections</h1>
@@ -20,8 +20,8 @@
 		<div class="alert alert-warning text-center" data-ng-if="reflections.$resolved && !reflections.length">
 			No reflections yet, why don't you <a href="/#!/reflections/create">create one</a>?
 		</div>
+		<footer>
+			<a href="http://monsieurslim.github.io/Portfolio"><p>&copy; 2014 Monsieur Slim | Andela</p></a>
+		</footer>
 	</div>
-	<footer>
-		<a href="http://monsieurslim.github.io/Portfolio"><p>&copy; 2014 Monsieur Slim | Andela</p></a>
-	</footer>
 </section>

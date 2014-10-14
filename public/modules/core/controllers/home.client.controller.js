@@ -8,17 +8,23 @@ angular.module('core').controller('HomeController', ['$http','$scope', 'Authenti
 		$scope.welcomeMessage = new Date();
 		$scope.items = [];
 		$scope.posts = [];
+		$scope.loading = false;
+		$scope.postsRefresh = function() {
+			location.reload();
+			return false;
+		};
 		$scope.fillContent = function(post) {
 			console.log("fillContent is running");
 			ReflectionUtilities.setReflection(post);
 		};
 
 		window.fbAsyncInit = function() {
+			$scope.$apply($scope.loading = true);
 	        FB.init({
 	          appId      : '477221335631523',
 	          xfbml      : true,
 	          version    : 'v2.1'
-	        }),
+	        });
 	        
 	        FB.getLoginStatus(function(response) {
 	        	console.log(response);
@@ -41,6 +47,7 @@ angular.module('core').controller('HomeController', ['$http','$scope', 'Authenti
 							if($scope.item[i].likes != undefined && $scope.item[i].likes.data.length >= 10) {	
 					   			$scope.posts.push($scope.item[i].message);					   						
 				   			}
+				   			$scope.loading = false;
 				   		};
 				   		console.log($scope.posts.length);
 				   		console.log($scope.posts);
@@ -68,6 +75,7 @@ angular.module('core').controller('HomeController', ['$http','$scope', 'Authenti
 								if($scope.item[i].likes != undefined && $scope.item[i].likes.data.length >= 10) {	
 						   			$scope.posts.push($scope.item[i].message);					   						
 					   			}
+					   			$scope.loading = false;
 					   		};
 					   		console.log($scope.posts.length);
 					   		console.log($scope.posts);
