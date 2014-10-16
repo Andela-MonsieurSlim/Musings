@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 .content {
 	margin-top: 50px;
 }
@@ -14,13 +16,20 @@
     border-color:#78FA89;
 }
 /**********MAIN CONTAINER******************/
-h1, h3 {
+h1, h3, p {
 	color: white;
 }
 h2 {
 	color: pink;
 }
 
+h4, h5 {
+	font-family: 'Open Sans', sans-serif;
+}
+h5 {
+	font-style: italic;
+	font-weight: bold;
+}
 .wrap {
 	background: rgb(255,0,255);
 	padding: 30px;
@@ -31,7 +40,8 @@ h2 {
 }
 
 .login {
-	float: right;
+	text-align: center;
+	padding-bottom: 20px;
 }
 .preloader {
 	text-align: center;

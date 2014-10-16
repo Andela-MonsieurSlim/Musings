@@ -12,7 +12,7 @@
 				<img src="/modules/core/img/727.GIF" ng-show="loading">
 			</div>
 			<div data-ng-repeat="post in posts track by $index" class="list-group-item">
-				<p class="list-group-item-text" data-ng-bind="post"></p><br>
+				<h4 class="list-group-item-text" data-ng-bind="post"></h4><br>
 				<a href="/#!/reflections/create" class="btn btn-default" ng-click="fillContent(post)"><i class="glyphicon glyphicon-edit"></i>
 					Make a Reflection from this
 				</a>
@@ -20,9 +20,6 @@
 		</div><br>
 		<button class="btn btn-default" type="submit" ng-click="postsRefresh()"><i class="glyphicon glyphicon-refresh"></i>
 			Explore Your Hot Facebook Posts
-		</button>
-		<button class="btn btn-default" type="submit" ng-click="postsRefresh()"><i class="glyphicon glyphicon-refresh"></i>
-			Explore Your Hot Tweets
 		</button>
 		<footer>
 			<a href="http://monsieurslim.github.io/Portfolio"><p>&copy; 2014 Monsieur Slim | Andela</p></a>

@@ -15,9 +15,8 @@ var mongoose = require('mongoose'),
 exports.addComment = function(req, res) {
 	var reflection = req.reflection;
 	var comment = req.body;
-	comment.author = req.user;
+	comment.author = req.user.displayName;
 	reflection.comments.unshift(comment);
-
 	reflection.save(function(err) {
 		if (err) {
 			return res.status(400).send({

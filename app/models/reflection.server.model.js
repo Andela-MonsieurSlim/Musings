@@ -26,8 +26,9 @@ var LikeSchema = new Schema({
  */
 var CommentSchema = new Schema({ 
 	author: {
-	    type: Schema.ObjectId,
-	    ref: 'User'
+	    type: String,
+		default: '',
+		trim: true
   	},
   	commentBody: {
 		type: String,

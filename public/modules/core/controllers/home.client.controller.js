@@ -9,34 +9,30 @@ angular.module('core').controller('HomeController', ['$http','$scope', 'Authenti
 		$scope.items = [];
 		$scope.posts = [];
 		$scope.loading = false;
+
 		$scope.postsRefresh = function() {
 			location.reload();
 			return false;
 		};
 		$scope.fillContent = function(post) {
-			console.log("fillContent is running");
 			ReflectionUtilities.setReflection(post);
 		};
 
 		window.fbAsyncInit = function() {
 			$scope.$apply($scope.loading = true);
 	        FB.init({
-	          appId      : '477221335631523',
-	          xfbml      : true,
-	          version    : 'v2.1'
+		        appId      : '639286812854499',
+		        xfbml      : true,
+		        version    : 'v2.1'
 	        });
-	        
+	        //Check User's log-in Status
 	        FB.getLoginStatus(function(response) {
-	        	console.log(response);
 				if (response.status === 'connected') {
-				    console.log('Logged in.');
+					//Retrieve Facebook Posts 
 				    FB.api('/me/statuses?limit=100&format=json', function(response) {
-				    	//operations on response data
-				    	console.log(response);
+				    	//Operations on response data
 				   		$scope.items.push(response.data);
-				   		console.log($scope.items[0].length);
 				   		$scope.item = $scope.items[0];
-				   		console.log($scope.item);
 				   		for (var i = 0; i < $scope.item.length; i++) {
 				   			if ($scope.item[i].comments == undefined && $scope.item[i].likes == undefined) {
 				   			 	continue;
@@ -49,22 +45,17 @@ angular.module('core').controller('HomeController', ['$http','$scope', 'Authenti
 				   			}
 				   			$scope.loading = false;
 				   		};
-				   		console.log($scope.posts.length);
-				   		console.log($scope.posts);
 				   		$scope.$apply();	
 					}); 
-				   
 				}
 				else {
+					//Prompt User to get Logged In
 				    FB.login(function(){
-				    	console.log('Logging in.');
+				    	//Retrieve Facebook Posts
 					    FB.api('/me/statuses?limit=30&format=json', function(response) {
-			      			//operations on response data
-			      			console.log(response);
+			      			//Operations on response data
 			      			$scope.items.push(response.data);
-			      			console.log($scope.items[0].length);
 					   		$scope.item = $scope.items[0];
-					   		console.log($scope.item);
 					   		for (var i = 0; i < $scope.item.length; i++) {
 					   			if ($scope.item[i].comments == undefined && $scope.item[i].likes == undefined) {
 					   			 	continue;
@@ -77,15 +68,11 @@ angular.module('core').controller('HomeController', ['$http','$scope', 'Authenti
 					   			}
 					   			$scope.loading = false;
 					   		};
-					   		console.log($scope.posts.length);
-					   		console.log($scope.posts);
 					   		$scope.$apply();	
 						});
 
 					}, {scope: 'read_stream'});
 				}
-
-				console.log($scope.posts);
 			});
 		};
 

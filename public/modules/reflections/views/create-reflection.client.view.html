@@ -3,7 +3,7 @@
 		<div class="page-header">
 			<h1>New Reflection</h1>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-9">
 			<form name="reflectionForm" class="form-horizontal" data-ng-submit="create()" novalidate>
 				<fieldset>
 					<div class="form-group" ng-class="{ 'has-error': reflectionForm.title.$dirty && reflectionForm.title.$invalid }">
@@ -30,9 +30,9 @@
 			</form>
 		</div>
 		<div class="side-reflect">
-			<p>Reflection....</p>
-			<p>by ;</p>
-			<p data-ng-bind="authentication.user.displayName"></p>
+			<h4>Reflection....</h4>
+			<h4>by ;</h4>
+			<h4 data-ng-bind="authentication.user.displayName"></h4>
 		</div>
 	</div>
 	<footer>

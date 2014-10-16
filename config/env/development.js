@@ -6,8 +6,8 @@ module.exports = {
 		title: 'Musings - Development Environment'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || '477221335631523',
-		clientSecret: process.env.FACEBOOK_SECRET || 'c6dc5e360bd834284e07a368d094e290',
+		clientID: process.env.FACEBOOK_ID || '639286812854499',
+		clientSecret: process.env.FACEBOOK_SECRET || 'be4974329d7f2325896f17d4b0cc38cf',
 		callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	twitter: {

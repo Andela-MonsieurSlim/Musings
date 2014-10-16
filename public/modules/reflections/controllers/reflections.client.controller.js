@@ -10,6 +10,51 @@ angular.module('reflections').controller('ReflectionsController', ['$scope', '$s
 		$scope.toggleMakeComment = function() {
 			$scope.makeComment = !$scope.makeComment;
 		};
+
+		$scope.shareToFacebook = function() {
+	        FB.init({
+		        appId      : '639286812854499',
+		        xfbml      : true,
+		        version    : 'v2.1'
+	        });
+	        //Check User's log-in Status
+	        FB.getLoginStatus(function(response) {
+				if (response.status === 'connected') {
+					var body = $scope.reflection.content;
+					//Make post to Timeline
+					FB.api('/me/feed', 'post', { message: body }, function(response) {
+						if (!response || response.error) {
+					    	alert('Please Connect To Facebook First!(Go to "Manage Social Accounts")');
+						} else {
+					    	alert('This Reflection Was Successfully Posted On Your Facebook Timeline!');
+						}
+					});
+				}
+				else {
+					//Prompt User to get logged in.
+					FB.login(function(){
+						var body = $scope.reflection.content;
+						//Make post to Timeline
+						FB.api('/me/feed', 'post', { message: body }, function(response) {
+							if (!response || response.error) {
+						    	alert('Please Connect To Facebook First!(Go to "Manage Social Accounts")');
+							} else {
+						    	alert('This Reflection Was Successfully Posted On Your Facebook Timeline!');
+							}
+						});
+					}, {scope: 'publish_actions'});
+				}
+			});
+	    };
+
+	    (function(d, s, id){
+	         var js, fjs = d.getElementsByTagName(s)[0];
+	         if (d.getElementById(id)) {return;}
+	         js = d.createElement(s); js.id = id;
+	         js.src = "//connect.facebook.net/en_US/sdk.js";
+	         fjs.parentNode.insertBefore(js, fjs);
+	    }(document, 'script', 'facebook-jssdk'));
+
 		// Create new Reflection
 		$scope.create = function() {
 			var reflection = new Reflections({
@@ -18,7 +63,6 @@ angular.module('reflections').controller('ReflectionsController', ['$scope', '$s
 			});
 			reflection.$save(function(response) {
 				$location.path('reflections/' + response._id);
-
 				$scope.title = '';
 				$scope.content = '';
 			}, function(errorResponse) {
@@ -30,12 +74,11 @@ angular.module('reflections').controller('ReflectionsController', ['$scope', '$s
 	    $scope.addComment = function() {
 	      var comment = new Comments ({
 	        reflectionId: $scope.reflection._id,
-	        commentBody: this.comment,
+	        commentBody: this.comment
 	      });
 
 	      comment.$save(function(response) {
 	          $scope.reflection = response;
-	          console.log(response);
 	        }, function(errorResponse) {
 	          $scope.error = errorResponse.data.message;
 	      });
@@ -77,7 +120,6 @@ angular.module('reflections').controller('ReflectionsController', ['$scope', '$s
 			$scope.reflection = Reflections.get({
 				reflectionId: $stateParams.reflectionId
 			});
-			console.log($scope.reflection);
 		};
 
 	    //Like a Reflection
