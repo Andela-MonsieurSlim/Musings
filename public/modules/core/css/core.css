@@ -23,13 +23,22 @@ h2 {
 	color: pink;
 }
 
-h4, h5 {
+h4, h5, h6 {
 	font-family: 'Open Sans', sans-serif;
 }
 h5 {
 	font-style: italic;
 	font-weight: bold;
 }
+h6 {
+	color: white;
+	font-size: 1em;
+	font-style: italic;
+} 
+.padAuto {
+	margin-top: 10px;
+}
+
 .wrap {
 	background: rgb(255,0,255);
 	padding: 30px;
