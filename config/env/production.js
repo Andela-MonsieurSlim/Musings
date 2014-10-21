@@ -27,27 +27,27 @@ module.exports = {
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || '639286812854499',
 		clientSecret: process.env.FACEBOOK_SECRET || 'be4974329d7f2325896f17d4b0cc38cf',
-		callbackURL: 'http://localhost:3000/auth/facebook/callback'
+		callbackURL: 'http://musing.herokuapp.com/auth/facebook/callback'
 	},
 	twitter: {
 		clientID: process.env.TWITTER_KEY || 'L4VtUgbjWJrgMuspcB5TMKSAR',
 		clientSecret: process.env.TWITTER_SECRET || '4rFdfsYXr4vFrvkzmNsK6x7R201PYz8wWifdOX9IEJdOfm0yyb',
-		callbackURL: 'http://localhost:3000/auth/twitter/callback'
+		callbackURL: 'http://musing.herokuapp.com/auth/twitter/callback'
 	},
 	google: {
 		clientID: process.env.GOOGLE_ID || 'APP_ID',
 		clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
-		callbackURL: 'http://localhost:3000/auth/google/callback'
+		callbackURL: 'http://musing.herokuapp.com/auth/google/callback'
 	},
 	linkedin: {
 		clientID: process.env.LINKEDIN_ID || 'APP_ID',
 		clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
-		callbackURL: 'http://localhost:3000/auth/linkedin/callback'
+		callbackURL: 'http://musing.herokuapp.com/auth/linkedin/callback'
 	},
 	github: {
 		clientID: process.env.GITHUB_ID || 'APP_ID',
 		clientSecret: process.env.GITHUB_SECRET || 'APP_SECRET',
-		callbackURL: 'http://localhost:3000/auth/github/callback'
+		callbackURL: 'http://musing.herokuapp.com/auth/github/callback'
 	},
 	mailer: {
 		from: process.env.MAILER_FROM || 'MAILER_FROM',
